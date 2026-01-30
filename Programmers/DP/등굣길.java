@@ -4,14 +4,14 @@ class Solution {
     static final int MOD = 1_000_000_007;
 
     public int solution(int m, int n, int[][] puddles) {
-        boolean[][] blocked = new boolean[n + 1][m + 1]; // [y][x]
+        boolean[][] blocked = new boolean[n + 1][m + 1];
         for (int[] p : puddles) {
             int x = p[0];
             int y = p[1];
             blocked[y][x] = true;
         }
 
-        int[][] dp = new int[n + 1][m + 1]; // [y][x]
+        int[][] dp = new int[n + 1][m + 1];
         dp[1][1] = 1;
 
         for (int y = 1; y <= n; y++) {
