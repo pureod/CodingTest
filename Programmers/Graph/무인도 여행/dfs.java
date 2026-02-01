@@ -1,5 +1,6 @@
 import java.util.*;
 
+// Out of Stack Memory 문제 가능성으로 인해 BFS를 추천 (이 코드로도 통과 가능하긴 함)
 class Solution {
     private static int[] dx = {0,0,1,-1};
     private static int[] dy = {1,-1,0,0};
