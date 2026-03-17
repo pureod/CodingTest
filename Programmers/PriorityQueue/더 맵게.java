@@ -3,20 +3,22 @@ import java.util.*;
 class Solution {
     public int solution(int[] scoville, int K) {
         int answer = 0;
+        int n = scoville.length;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> Integer.compare(a,b));
-        for (int s : scoville) pq.add(s);
+        for (int i = 0; i < n; i++) pq.add(scoville[i]);
 
-        while (pq.size() >= 2 && pq.peek() < K) {
+        while (!pq.isEmpty()) {
+            if (pq.peek() >= K) return answer;
+            if (pq.size() < 2) return -1;
+
             int first = pq.poll();
-            int second = pq.poll();더
-            int newFood = first + (second * 2);
+            int second = pq.poll();
 
-            pq.add(newFood);
+            pq.add(first + (second * 2));
+
             answer++;
         }
-
-        if (pq.peek() < K) return -1;
 
         return answer;
     }
